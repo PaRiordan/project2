@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Board extends JFrame implements ActionListener {
     public List<Card> cards;
-    private JLabel selectedCard;
-    private JLabel c1;
-    private JLabel c2;
+    private Card selectedCard;
+    private Card c1;
+    private Card c2;
     private Timer t;
     private List<JLabel> cardLabels = new ArrayList<>();
     private List<JButton> buttons = new ArrayList();
@@ -108,6 +108,13 @@ public class Board extends JFrame implements ActionListener {
             if (e.getSource()== buttons.get(i)){
 
                 cardLabels.get(i).setVisible(true);
+                Card n = new Card();
+                n.getJlabel(cardLabels.get(i));
+                doTurn();
+                selectedCard = n;
+
+                System.out.print("card 1 " +c1);
+                System.out.print("card 2" +c2);
               //  selectedCard = cardLabels.get(i);
               //  doTurn();
               //  JOptionPane.showMessageDialog(null,c1);
