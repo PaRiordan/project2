@@ -46,8 +46,8 @@ public class Board extends JFrame implements ActionListener {
 
         // an ArrayList of path ways
         List<String> pathList = new ArrayList<>();
-        pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\AceHearts.png");
-        pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\AceHearts.png");
+        pathList.add("C:\\Users\\t00202274\\ProjectIdea\\project2\\src\\KingSpades.png");
+        pathList.add("C:\\Users\\t00202274\\ProjectIdea\\project2\\src\\playingCards.jpg");
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\AceClubs.png");
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\AceClubs.png");
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\KingSpades.png");
@@ -62,7 +62,7 @@ public class Board extends JFrame implements ActionListener {
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\JackDiamonds.png");
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\JackClubs.png");
         pathList.add("C:\\Users\\Patrick Riordan\\IdeaProjects\\MemoryMuscle\\out\\Images\\JackClubs.png");
-       Collections.shuffle(pathList);
+       //Collections.shuffle(pathList);
 
         Container con = getContentPane();
 
@@ -110,40 +110,46 @@ public class Board extends JFrame implements ActionListener {
                 cardLabels.get(i).setVisible(true);
                 Card n = new Card();
                 n.getJlabel(cardLabels.get(i));
-                doTurn();
                 selectedCard = n;
+                selectedCard.setId(0);
+                doTurn();
+                System.out.print("card s " +selectedCard.getId());
+                System.out.print("card 1 " +c1.getId());
 
-                System.out.print("card 1 " +c1);
-                System.out.print("card 2" +c2);
-              //  selectedCard = cardLabels.get(i);
-              //  doTurn();
-              //  JOptionPane.showMessageDialog(null,c1);
+                System.out.print("card 2" +c2.getId());
+
+                //  doTurn();
             }
+            //  selectedCard = cardLabels.get(i);
 
-              //  selectedCard = cardLabels.get(i);
-              //  doTurn();
-              //  JOptionPane.showMessageDialog(null,c2);
+            //  selectedCard = cardLabels.get(i);
+            //  doTurn();
 
-
-            }
 
         }
+
+        JOptionPane.showMessageDialog(null,c1);
+        JOptionPane.showMessageDialog(null,c2);
+    }
 
     
 
     public void doTurn() {
         if (c1 == null && c2 == null) {
             c1 = selectedCard;
-           // c1.setText(String.valueOf(c1.getId()));
-            if (c1 != null && c1 != selectedCard && c2 == null){
+            c1.setId(1);
+        }
+        // c1.setText(String.valueOf(c1.getId()));
+            if (c1 != null && c2 != selectedCard&& c2 == null){
                 c2 = selectedCard;
+                c2.setId(2);
                 //c2.setText(String.valueOf(c2.getId()));
 
 
             }
         }
 
-    }
+
 
     public void checkCards(){
         if (c1.getIcon() == c2.getDisabledIcon()){//match condition
